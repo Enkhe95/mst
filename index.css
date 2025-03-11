@@ -1,3 +1,251 @@
-p {
-  color: brown;
+@font-face {
+  font-family: 'Prata';
+  src: url(src/fonts/Prata-Regular.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* block HEADER */
+.header {
+  width: 100%;
+  height: auto;
+  display: flex;
+  background-color: #222222;
+  overflow-x: hidden;
+}
+
+.header-container {
+  margin-left: 5%;
+  margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 5vw;
+  width: 100%;
+}
+
+.header-nav {
+  display: flex;
+  gap: 209px;
+  position: sticky;
+  top: 0;
+  background-color: #222222;
+  z-index: 10;
+}
+
+.logo {
+  font-size: clamp(16px, 2.5vw, 32px);
+  font-family: 'Prata', serif;
+  line-height: 150%;
+  letter-spacing: 3px;
+  color: #ffffff;
+  margin-top: 44px;
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  gap: 29px;
+  margin-top: 53px;
+}
+
+.nav-link {
+  display: flex;
+  text-decoration: none;
+  gap: 29px;
+  font-size: clamp(12px, 1.5vw, 16px);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  transition: color 0.3s, transform 0.1s, text-shadow 0.3s;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: #8b4513;
+  text-shadow: 0 0 5px rgba(139, 69, 19, 0.5);
+}
+
+.nav-link:active {
+  color: #5a2d0c;
+  transform: translateY(2px);
+}
+
+.photo1 {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.header-text {
+  width: 100%;
+  padding-right: 5%;
+}
+
+.header-title {
+  font-size: clamp(32px, 6vw, 80px);
+  font-family: 'Prata', serif;
+  font-weight: 400;
+  line-height: 120%;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.header-description {
+  font-size: clamp(20px, 4vw, 50px);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  color: #e0e0e0;
+  margin-bottom: 30px;
+}
+
+.header-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.header-list-item {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(14px, 2vw, 24px);
+  line-height: 110%;
+  color: #ffffff;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn {
+  padding: 15px 30px;
+  font-size: clamp(16px, 2.5vw, 32px); /* От 16px до 32px */
+  font-weight: bold;
+  line-height: 150%;
+  letter-spacing: 4px;
+  color: #222222;
+  background: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.1s;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #d2b48c, #8b4513);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(139, 69, 19, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  background: #8b4513;
+  box-shadow: 0 0 15px rgba(139, 69, 19, 0.5);
+  transform: translateY(2px) scale(0.98);
+}
+
+/* adaptive  */
+
+@media (max-width: 1800px) {
+  /* HEADER */
+  .photo1 {
+    flex: 1;
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .header-container {
+    flex: 1;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 5vw;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 100%;
+    height: auto;
+    background-color: #222222;
+  }
+}
+
+@media (max-width: 768px) {
+  /* HEADER */
+  .header {
+    flex-direction: column;
+  }
+
+  .nav {
+    margin: 0px;
+  }
+  .header-container {
+    padding: 10px;
+    gap: 15px;
+  }
+  .header-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .photo1 {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 320px) {
+  /* HEADER */
+  .header {
+    gap: 10px;
+  }
+
+  .logo {
+    margin-top: 20px;
+  }
+  .nav {
+    display: none;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+  .header-nav {
+    flex-direction: column;
+    gap: 0;
+  }
+  .nav {
+    flex-direction: column;
+    gap: 5px;
+    display: none;
+  }
+
+  .header-container {
+    width: 100%;
+    padding: 0;
+  }
+  .header-title {
+    font-size: 20px;
+  }
+  .photo1 {
+    width: 100%;
+  }
+
+  .header-description {
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 10px;
+    font-size: 12px;
+  }
 }
