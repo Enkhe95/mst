@@ -30,10 +30,7 @@
 .header-nav {
   display: flex;
   gap: 150px;
-  position: sticky;
-  top: 0;
   background-color: #222222;
-  z-index: 10;
 }
 
 .logo {
@@ -50,6 +47,16 @@
   display: flex;
   gap: 29px;
   margin-top: 53px;
+}
+
+.line-menu1 {
+  display: none;
+}
+.line-menu2 {
+  display: none;
+}
+.line-menu3 {
+  display: none;
 }
 
 .nav-link {
@@ -438,6 +445,7 @@ input[type='checkbox'] {
     height: auto;
     background-color: #222222;
   }
+
   /* MAIN */
   /* CONTENT */
   .photo {
@@ -467,6 +475,37 @@ input[type='checkbox'] {
     width: 100%;
     height: auto;
     object-fit: contain;
+  }
+
+  .line-menu-container {
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .line-menu1,
+  .line-menu2,
+  .line-menu3 {
+    display: block;
+    width: 35px;
+    height: 5px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+
+  /* Rotate first bar */
+  .change .line-menu1 {
+    transform: translate(0, 11px) rotate(-45deg);
+  }
+
+  /* Fade out the second bar */
+  .change .line-menu2 {
+    opacity: 0;
+  }
+
+  /* Rotate last bar */
+  .change .line-menu3 {
+    transform: translate(0, -11px) rotate(45deg);
   }
 
   /* MAIN */
